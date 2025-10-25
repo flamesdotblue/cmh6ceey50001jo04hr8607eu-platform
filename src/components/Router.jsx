@@ -6,6 +6,10 @@ import CommunityPage from './pages/CommunityPage';
 import NewsPage from './pages/NewsPage';
 import SeasonsPage from './pages/SeasonsPage';
 import DownloadPage from './pages/DownloadPage';
+import StatusPage from './pages/StatusPage';
+import SecurityPage from './pages/SecurityPage';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
 
 export const navigateTo = (route) => {
   const path = route.startsWith('#') ? route : `#/${route}`;
@@ -46,6 +50,14 @@ export default function Router() {
         return <SeasonsPage />;
       case 'download':
         return <DownloadPage />;
+      case 'status':
+        return <StatusPage />;
+      case 'security':
+        return <SecurityPage />;
+      case 'terms':
+        return <TermsPage />;
+      case 'privacy':
+        return <PrivacyPage />;
       case '':
       default:
         return <HomePage />;
