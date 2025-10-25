@@ -43,7 +43,7 @@ export default function SquadFinder({ region, setRegion, platform, setPlatform, 
         </div>
         <span className="opacity-40 mx-1">|</span>
         <div className="text-xs">Region</div>
-        {['All','NA','EU','APAC','SA'].map(r => (
+        {['All','NA','EU','APAC','SA','India'].map(r => (
           <Pill key={r} active={region===r} onClick={()=>setRegion(r)}>{r}</Pill>
         ))}
         <span className="opacity-40 mx-1">|</span>

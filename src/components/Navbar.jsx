@@ -1,5 +1,5 @@
 import React from 'react';
-import { Gamepad2, Trophy, Users, Download, Newspaper, CalendarDays, ShieldCheck } from 'lucide-react';
+import { Gamepad2, Trophy, Users, Download, Newspaper, CalendarDays, ShieldCheck, ShoppingBag } from 'lucide-react';
 import { navigateTo } from './Router';
 
 export default function Navbar() {
@@ -12,7 +12,7 @@ export default function Navbar() {
           </div>
           <span className="font-semibold tracking-wide text-white">PUBG // Solid</span>
         </button>
-        <ul className="hidden md:flex items-center gap-8 text-sm text-white/80">
+        <ul className="hidden md:flex items-center gap-6 text-sm text-white/80">
           <li>
             <button onClick={() => navigateTo('community')} className="hover:text-white transition-colors flex items-center gap-2"><Users className="h-4 w-4" /> Community</button>
           </li>
@@ -27,6 +27,9 @@ export default function Navbar() {
           </li>
           <li>
             <button onClick={() => navigateTo('status')} className="hover:text-white transition-colors flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> Status</button>
+          </li>
+          <li>
+            <button onClick={() => navigateTo('store')} className="hover:text-white transition-colors flex items-center gap-2"><ShoppingBag className="h-4 w-4" /> Store</button>
           </li>
         </ul>
         <button onClick={() => navigateTo('download')} className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-black shadow hover:brightness-95 active:scale-95 transition-all">

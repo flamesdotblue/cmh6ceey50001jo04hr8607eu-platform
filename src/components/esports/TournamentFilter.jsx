@@ -26,7 +26,7 @@ export default function TournamentFilter({ category, setCategory, platform, setP
         <span className="opacity-40 mx-1 hidden sm:inline">|</span>
         <div className="inline-flex items-center gap-2 text-xs flex-1 sm:flex-none">
           <Globe2 className="h-3.5 w-3.5 text-white/60" />
-          {['Global','EMEA','Americas','APAC'].map(r => (
+          {['Global','EMEA','Americas','APAC','India'].map(r => (
             <Pill key={r} active={region === r} onClick={() => setRegion(r)}>{r}</Pill>
           ))}
         </div>

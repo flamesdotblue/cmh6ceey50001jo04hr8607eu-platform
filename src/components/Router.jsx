@@ -10,6 +10,7 @@ import StatusPage from './pages/StatusPage';
 import SecurityPage from './pages/SecurityPage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
+import StorePage from './pages/StorePage';
 
 export const navigateTo = (route) => {
   const path = route.startsWith('#') ? route : `#/${route}`;
@@ -58,6 +59,8 @@ export default function Router() {
         return <TermsPage />;
       case 'privacy':
         return <PrivacyPage />;
+      case 'store':
+        return <StorePage />;
       case '':
       default:
         return <HomePage />;
