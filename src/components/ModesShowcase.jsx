@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Trophy, Star } from 'lucide-react';
+import { Users, Trophy, Star, Info } from 'lucide-react';
+import { navigateTo } from './Router';
 
 const modes = [
   {
@@ -36,7 +37,7 @@ export default function ModesShowcase() {
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Game Modes</h2>
             <p className="mt-2 text-white/60 max-w-2xl">Choose your fight. Each mode is tuned for high-impact action with fluid movement and tactical decision-making.</p>
           </div>
-          <button className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition">View Patch Notes</button>
+          <button onClick={() => navigateTo('news')} className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10 transition">View Patch Notes</button>
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -58,8 +59,8 @@ export default function ModesShowcase() {
                 <h3 className="mt-3 text-xl font-semibold">{m.title}</h3>
                 <p className="mt-2 text-sm text-white/70">{m.desc}</p>
                 <div className="mt-6 flex items-center gap-3">
-                  <button className="rounded-full bg-white text-black text-xs font-semibold px-3 py-1.5 hover:brightness-110">Queue</button>
-                  <button className="rounded-full border border-white/20 text-white text-xs font-semibold px-3 py-1.5 hover:bg-white/10">Learn More</button>
+                  <button onClick={() => navigateTo('modes')} className="rounded-full bg-white text-black text-xs font-semibold px-3 py-1.5 hover:brightness-110">Queue</button>
+                  <button onClick={() => navigateTo('modes')} className="rounded-full border border-white/20 text-white text-xs font-semibold px-3 py-1.5 hover:bg-white/10 inline-flex items-center gap-1.5"><Info className="h-3.5 w-3.5"/> Learn More</button>
                 </div>
               </div>
             </motion.div>
@@ -77,6 +78,7 @@ export default function ModesShowcase() {
                 <span className="rounded-full bg-fuchsia-400/20 text-fuchsia-300 text-xs px-3 py-1 border border-fuchsia-300/30">Reactive Skins</span>
                 <span className="rounded-full bg-cyan-400/20 text-cyan-300 text-xs px-3 py-1 border border-cyan-300/30">Balance Patch</span>
               </div>
+              <div className="mt-6"><button onClick={() => navigateTo('seasons')} className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm hover:bg-white/20">Open Season Hub</button></div>
             </div>
           </div>
           <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/50">
@@ -90,7 +92,7 @@ export default function ModesShowcase() {
                 <span className="rounded-full border border-white/15 px-2 py-1">Community Cups</span>
               </div>
               <div className="mt-auto pt-6">
-                <button className="w-full rounded-xl bg-white text-black font-semibold py-2.5 hover:brightness-110">Open Hub</button>
+                <button onClick={() => navigateTo('esports')} className="w-full rounded-xl bg-white text-black font-semibold py-2.5 hover:brightness-110">Open Hub</button>
               </div>
             </div>
           </div>

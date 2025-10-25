@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigateTo } from './Router';
 
 export default function Footer() {
   return (
@@ -13,10 +14,10 @@ export default function Footer() {
           <div>
             <div className="text-white font-semibold">Explore</div>
             <ul className="mt-2 space-y-1">
-              <li>Game Modes</li>
-              <li>Seasons</li>
-              <li>Esports</li>
-              <li>News</li>
+              <li><button onClick={() => navigateTo('modes')} className="hover:text-white">Game Modes</button></li>
+              <li><button onClick={() => navigateTo('seasons')} className="hover:text-white">Seasons</button></li>
+              <li><button onClick={() => navigateTo('esports')} className="hover:text-white">Esports</button></li>
+              <li><button onClick={() => navigateTo('news')} className="hover:text-white">News</button></li>
             </ul>
           </div>
           <div>

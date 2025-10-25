@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Spline from '@splinetool/react-spline';
-import { Rocket, Star } from 'lucide-react';
+import { Rocket, Star, Play, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { navigateTo } from './Router';
+
+function TrailerModal({ open, onClose }) {
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 grid place-items-center bg-black/70 backdrop-blur-sm p-4" onClick={onClose}>
+      <div className="relative w-full max-w-3xl aspect-video bg-black rounded-2xl overflow-hidden border border-white/15" onClick={(e) => e.stopPropagation()}>
+        <button onClick={onClose} className="absolute top-2 right-2 z-10 inline-flex items-center justify-center h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 text-white">
+          <X className="h-5 w-5" />
+        </button>
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0"
+          title="Trailer"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <section className="relative w-full h-[92vh] pt-16 overflow-hidden">
+    <section className="relative w-full h-[92vh] pt-0 overflow-hidden">
       <div className="absolute inset-0">
         <Spline scene="https://prod.spline.design/7m4PRZ7kg6K1jPfF/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
@@ -27,11 +51,11 @@ export default function Hero() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <motion.button whileTap={{ scale: 0.97 }} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-emerald-400 px-6 py-3 text-sm font-semibold text-black shadow-[0_0_40px_rgba(56,189,248,0.45)] hover:brightness-110 transition-all">
+              <motion.button whileTap={{ scale: 0.97 }} onClick={() => navigateTo('download')} className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-emerald-400 px-6 py-3 text-sm font-semibold text-black shadow-[0_0_40px_rgba(56,189,248,0.45)] hover:brightness-110 transition-all">
                 <Rocket className="h-4 w-4" /> Play Free
               </motion.button>
-              <button className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/50 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
-                Watch Trailer
+              <button onClick={() => setOpen(true)} className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/50 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
+                <Play className="h-4 w-4" /> Watch Trailer
               </button>
             </div>
           </motion.div>
@@ -39,6 +63,8 @@ export default function Hero() {
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
+
+      <TrailerModal open={open} onClose={() => setOpen(false)} />
     </section>
   );
 }
